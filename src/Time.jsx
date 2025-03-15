@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './Time.css'; // We'll create this CSS file next
+import './Time.css';
+import { useCash } from '../stratcomponents/CashContext';
 
 const TimeSimulation = () => {
-  const [currentDate, setCurrentDate] = useState(new Date(2025, 0, 1)); // Start at Jan 2025
+  // Use the context
+  const { pocketCash, setPocketCash, simulatedDate, setSimulatedDate } = useCash();
+  
+  // Local state for UI and time simulation
   const [isPlaying, setIsPlaying] = useState(false);
   const [yearProgress, setYearProgress] = useState(0);
   const [speed, setSpeed] = useState(1); // Default speed multiplier
@@ -12,9 +16,10 @@ const TimeSimulation = () => {
   const totalYears = 20;
   const monthsPerYear = 12;
   const baseTimePerMonth = 10000; // 10 seconds in milliseconds
+  const monthlyIncrease = 10000; // Adding 10,000 per month
   
   // Calculate the month within the current year (0-11)
-  const currentMonth = currentDate.getMonth();
+  const currentMonth = simulatedDate.getMonth();
   
   // Calculate overall progress
   const totalMonths = totalYears * monthsPerYear;
@@ -25,8 +30,11 @@ const TimeSimulation = () => {
     let timer;
     if (isPlaying) {
       timer = setTimeout(() => {
-        const newDate = new Date(currentDate);
+        const newDate = new Date(simulatedDate);
         newDate.setMonth(newDate.getMonth() + 1);
+        
+        // Increase pocket cash when changing months
+        setPocketCash(prevCash => prevCash + monthlyIncrease);
         
         // If we've completed a year, reset to January of next year
         if (newDate.getMonth() === 0) {
@@ -34,17 +42,20 @@ const TimeSimulation = () => {
             // If we've reached 20 years, reset completely
             if (prev >= totalYears - 1) {
               newDate.setFullYear(startDate.getFullYear());
+              // Reset pocket cash when restarting simulation
+              setPocketCash(10000);
               return 0;
             }
             return prev + 1;
           });
         }
         
-        setCurrentDate(newDate);
+        // Update the simulated date in the context
+        setSimulatedDate(newDate);
       }, baseTimePerMonth / speed); // Adjust time based on speed
     }
     return () => clearTimeout(timer);
-  }, [isPlaying, currentDate, speed, completedYears]);
+  }, [isPlaying, simulatedDate, speed, completedYears, setPocketCash, setSimulatedDate]);
   
   // Update progress percentage for current year
   useEffect(() => {
@@ -53,8 +64,9 @@ const TimeSimulation = () => {
   
   const togglePlay = () => {
     if (completedYears >= totalYears) {
-      setCurrentDate(new Date(2025, 0, 1));
+      setSimulatedDate(new Date(2025, 0, 1));
       setCompletedYears(0);
+      setPocketCash(10000); // Reset pocket cash when manually restarting
     }
     setIsPlaying(!isPlaying);
   };
@@ -66,17 +78,34 @@ const TimeSimulation = () => {
     });
   };
   
+  // Format currency
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(amount);
+  };
+  
   // Calculate the width for progress bars
   const yearBarWidth = `${yearProgress}%`;
   const totalBarWidth = `${(overallMonthsElapsed / totalMonths) * 100}%`;
   
   return (
-    <div className="time-simulation"> 
+    <div className="time-simulation">
+      <h2 className="time-title">Time Simulation</h2>
+      
       <div className="date-display">
-        <div className="current-date">{formatDate(currentDate)}</div>
+        <div className="current-date">{formatDate(simulatedDate)}</div>
         <div className="progress-text">
           Month {currentMonth + 1}/{monthsPerYear} of Year {completedYears + 1}/{totalYears}
         </div>
+      </div>
+      
+      {/* Pocket Cash Display */}
+      <div className="pocket-cash">
+        <h3>POCKET CASH</h3>
+        <div className="cash-value">{formatCurrency(pocketCash)}</div>
       </div>
       
       {/* Current Year Bar */}

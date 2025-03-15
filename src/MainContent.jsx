@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
-import SavingsAccountCard from "../stratcomponents/saving_deposit"; // Import your component
+import SavingsAccountCard from "../stratcomponents/SavingAccountCard"; // Import your component
 import "../stratcomponents/styles.css";
 
 export const MainContent = () => {
