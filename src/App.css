@@ -34,7 +34,7 @@ body, html {
 .sidebar .logo {
     width: 100%;
     height: 260px; /* Adjust height as needed */
-    background-image: url("C:\Users\sasug\OneDrive\Documents\bugs\vectis\public\logo.png"); /* Replace with your actual image path */
+    background-image: url("../public/logo.png"); /* Replace with your actual image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
