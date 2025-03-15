@@ -93,7 +93,6 @@ const TimeSimulation = () => {
   
   return (
     <div className="time-simulation">
-      <h2 className="time-title">Time Simulation</h2>
       
       <div className="date-display">
         <div className="current-date">{formatDate(simulatedDate)}</div>

@@ -25,9 +25,7 @@ export const Sidebar = () => {
       </div>
       <div className="bottom section">
         <nav className="sidebar-nav">
-          <a href="#" className="menu-item">Item 1</a>
-          <a href="#" className="menu-item">Item 2</a>
-          <a href="#" className="menu-item">Item 3</a>
+          <a href="#" className="menu-item">Transcation</a>
         </nav>
       </div>
     </aside>
