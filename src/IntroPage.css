@@ -6,8 +6,8 @@
   font-family: Arial, sans-serif;
 }
 body{
-  background: url("/intro_page.jpg") no-repeat center center/cover;
-  background-size: contain;
+  background: url("/ii.jpg") no-repeat center center/cover;
+  background-size: cover;
 }
 
 .intro-container {
@@ -77,5 +77,5 @@ p {
 }
 
 .next-button:hover {
-  background: orange;
+  background: rgb(43, 179, 79);
 }

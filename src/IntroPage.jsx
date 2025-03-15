@@ -3,14 +3,43 @@ import { useNavigate } from "react-router-dom";
 import "./IntroPage.css";
 
 const slides = [
-  { id: 1, title: "Welcome to Vectis", description: "You have 20 years to make some bucks" },
-  { id: 2, title: "Invest Wisely", description: "Choose the right financial products." },
-  { id: 3, title: "Watch Your Growth", description: "Track your investments over time." },
-  { id: 4, title: "Stay Consistent", description: "Regular investing leads to great returns." },
-  { id: 5, title: "Learn From Mistakes", description: "Bad decisions teach valuable lessons." },
-  { id: 6, title: "Optimize Your Portfolio", description: "Diversify to minimize risk." },
-  { id: 7, title: "Start Your Journey", description: "Let's begin building your future!" },
+  { 
+    id: 1, 
+    title: "Start Your Financial Journey", 
+    description: "You begin with a steady income. Your goal? Grow your wealth over 20 years through smart investments." 
+  },
+  { 
+    id: 2, 
+    title: "The Path to Wealth", 
+    description: "There are 7 types of investments. Each unlocks as you gain experience and invest wisely." 
+  },
+  { 
+    id: 3, 
+    title: "Level Up Your Investments", 
+    description: "Your early investments determine what opportunities open up. Strong choices unlock higher-reward options." 
+  },
+  { 
+    id: 4, 
+    title: "Risk vs Reward", 
+    description: "Not all investments are equal. Some offer stability, others high rewards with higher risks." 
+  },
+  { 
+    id: 5, 
+    title: "Strategize and Adapt", 
+    description: "Each investment type will be explained before you make a choice. Adapt to market conditions to stay ahead." 
+  },
+  { 
+    id: 6, 
+    title: "Unlock Your Full Potential", 
+    description: "Your financial decisions shape your future. Will you play it safe or take bold risks?" 
+  },
+  { 
+    id: 7, 
+    title: "Your 20-Year Journey Begins", 
+    description: "Make smart choices, track your progress, and watch your wealth grow!" 
+  },
 ];
+
 
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
