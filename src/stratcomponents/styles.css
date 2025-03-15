@@ -1,0 +1,13 @@
+.main-content-card {
+    background-color: #333;
+    color: white;
+    box-shadow: 4px 4px 0px black;
+    padding: 10px 16px;
+    border: none;
+    font-weight: bold;
+    margin: 0 10px;
+    display: flex;
+    flex: 1;
+    width: 100%; /* Added to cover maximum width */
+    height: 100%; /* Added to cover maximum height */
+}
