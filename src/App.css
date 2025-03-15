@@ -139,3 +139,37 @@ body, html {
       font-size: 1.2rem; /* Further reduce font size on very small screens */
   }
 }
+
+
+@media (max-width: 412px) {
+  .sidebar {
+      width: 100%; /* Full width on smaller screens */
+      padding: 8px;
+  }
+
+  .sidebar .logo {
+      height: 50px; /* Smaller logo */
+  }
+
+  .sidebar .menu-item {
+      padding: 6px 10px; /* Adjust padding for touch accessibility */
+      font-size: 14px; /* Reduce font size for better fit */
+  }
+
+  .header h1 {
+      font-size: 1rem; /* Reduce header font size */
+  }
+
+  .main-content {
+      padding: 10px; /* Reduce padding for better spacing */
+  }
+
+  .footer {
+      flex-direction: column; /* Stack footer boxes vertically */
+      padding: 8px;
+  }
+
+  .footer .box {
+      padding: 15px; /* Adjust padding */
+  }
+}
