@@ -21,40 +21,47 @@ body, html {
 
 /* Sidebar styling */
 .sidebar {
-  width: 250px; /* Adjust width */
-  background-color: #333;
+  width: 300px; /* Adjust width */
+  background-color:#001a07;
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: stretch; 
-  transition: width 0.3s ease; /* Smooth sidebar resizing */
+  transition: width 0.3s ease; 
+  justify-content: space-between;
 }
 
 .sidebar .logo {
     width: 100%;
-    height: 260px; /* Adjust height as needed */
-    background-image: url("C:\Users\sasug\OneDrive\Documents\bugs\vectis\public\logo.png"); /* Replace with your actual image path */
-    background-size: cover;
+    height: 260px; 
+    background-image: url("/logo.png"); 
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 10px; /* Optional: adds rounded corners */
+    border-radius: 10px; 
 }
 
+.sidebar p{
+  font-family: "Monospace", "Lucida Console";
+  font-size: x-large;
+}
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Important for responsive behavior */
+  width: 100%; 
+  margin-top: auto;
+  margin-left: 30px;
 }
 
 .sidebar .menu-item {
-  width: 100%;
+  width: 75%;
   padding: 10px 15px; /* Use padding for better spacing */
-  background: #444;  /* Slightly lighter than sidebar */
+  background: #919090;  
   margin-bottom: 5px; /* Reduced margin */
   text-align: center;
   text-decoration: none; /* Remove underlines from links */
-  color: white;        /* Ensure text is readable */
+  color:black;       /* Ensure text is readable */
   border-radius: 4px;  /* Rounded corners */
   transition: background-color 0.3s ease; /* Smooth hover effect */
   align-items: center;
@@ -73,69 +80,11 @@ body, html {
   flex-direction: column;
 }
 
-/* Header */
-.header {
-  background: #444;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header h1 {
-  font-size: 1.5rem; 
-}
-
 /* Main content */
 .main-content {
   flex: 1;
   padding: 20px; /* Add padding to the main content */
-  background: #777;
+  background-image: url(/GreenDark.jpg);
+  background-size: cover;
   overflow-y: auto;  /* Add scroll if content overflows */
-}
-
-/* Footer */
-.footer {
-  display: flex;
-  gap: 10px;
-  padding: 10px;    /* Add padding around the footer */
-  background: #555;
-}
-
-.footer .box {
-  flex: 1;
-  background: #666; /* Slightly lighter than footer background */
-  padding: 20px;  /* Padding inside footer boxes */
-  color: white;
-  text-align: center;
-  border-radius: 4px;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .layout {
-      flex-direction: column; /* Stack sidebar and content */
-  }
-
-  .sidebar {
-      width: 100%; /* Full width on smaller screens */
-      padding: 10px;
-  }
-
-  .sidebar .logo {
-      height: 60px; /* adjust logo height*/
-  }
-
-  .sidebar .menu-item{
-      padding: 8px 12px; /* adjust padding */
-  }
-  .footer {
-      flex-direction: column; /* Stack footer boxes vertically */
-  }
-}
-
-@media (max-width: 480px){
-  .header h1 {
-      font-size: 1.2rem; /* Further reduce font size on very small screens */
-  }
 }
