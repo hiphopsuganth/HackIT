@@ -1,9 +1,11 @@
 import React from "react";
+import TimeSimulation from "./Time";
 
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="topsection">
+        <TimeSimulation />
      <div className="logo"></div>
        <p>POCKET CASH</p>
        <br />
